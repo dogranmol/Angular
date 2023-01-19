@@ -1,0 +1,56 @@
+
+<div class="container">
+  <div class="row mt-5 d-flex justify-content-center">
+    <div class="col-xs-12 col-sm-10 col-md-4 col-sm-offset-1 col-md-offset-2">
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+       
+        <div class="mt-3 form-group display-7 text-primary">
+          <label><b><i>Email : </i></b></label>
+          <input
+            [ngStyle]="{border: '3px solid #555'}"
+            type="email"
+            name="email"
+            rows="3"
+            class="mt-3 form-control"
+            ngModel
+            required
+            email
+            #email="ngModel"
+           />
+           <span class="help-block text-danger" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
+        </div>
+        
+        <div class="mt-3 form-group display-7 text-primary">
+          <label><b><i>Password :</i></b> </label>
+          <input
+          [ngStyle]="{border: '3px solid #555'}"
+            type="password"
+            name="password"
+            rows="3"
+            class="mt-3 form-control"
+            ngModel
+            minlength="8"
+            required
+            #password="ngModel">
+            <span class="help-block text-danger" *ngIf="!password.valid && password.touched">Atleast 8 characters required!!!</span>
+        </div>
+        <div class="m-4 mt-3 d-flex justify-content-center">
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!f.valid"
+          >Login</button>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <button class="btn btn-info" routerLink="/">Back</button>
+        </div>
+      </form>
+    </div>
+    
+     
+    
+  </div>
+  <hr>
+  
+</div>

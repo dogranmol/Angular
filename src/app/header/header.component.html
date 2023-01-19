@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark" >
+  <div class="container-fluid ">
+    <a class="navbar-brand" routerLink="/"><h3 class="text-warning">ExpenseTracker</h3></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " *ngIf="isLoggedIn">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item ms-5">
+          <a class=" nav-link" routerLink="/home"><h5 class="text-white">Expenses</h5></a>
+        </li>
+        <li class="nav-item ms-5">
+          <a class=" nav-link" routerLink="/add"><h5 class="text-white">Add</h5></a>
+        </li>
+      </ul>
+      <div class="navbar-nav me-4">
+          <a [ngStyle]="{'cursor':'pointer'}" class=" nav-item nav-link" (click)="logout()"><h5  class="text-white">Logout</h5></a>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse" *ngIf="!isLoggedIn">
+      <div class="me-auto"></div>
+      <div class="navbar-nav d-flex justify-content-right me-4">
+          <a class=" nav-item nav-link " routerLink="/login"><h5 class="text-white">Login</h5></a>|
+          <a class=" nav-item nav-link cursor-pointer" routerLink="/register"><h5 class="text-white">Register</h5></a>
+      </div>
+    </div>
+  </div>
+</nav>
